@@ -173,6 +173,9 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Prenotazioni\PrenotazioneCLiente.cshtml" />
     <Content Include="Views\Prenotazioni\ModificaPrenotazione.cshtml" />
+    <Content Include="Views\Prenotazioni\DettagliPrenotazione.cshtml" />
+    <Content Include="Views\Prenotazioni\CreaPrenotazione.cshtml" />
+    <Content Include="Views\Prenotazioni\CancellaPrenotazione.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

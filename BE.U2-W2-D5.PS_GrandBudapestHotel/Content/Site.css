@@ -1,6 +1,6 @@
 ﻿body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding-top: 50px;
     padding-bottom: 20px;
     background-image: url('../img/james-gilleard-grand-budapest.jpg');
@@ -14,9 +14,9 @@
 }
 
 .navbar {
-    background-color: #EBB3A4;
+    background-color: #a8624f;
     color: black;
-    border:none;
+    border: none;
 }
 
 .navbar-inverse .navbar-brand {
@@ -34,13 +34,12 @@
 
 footer {
     text-align: center;
-    background-color: #e9f9ff;
-    color: black;
+    background-color: #a8624f;
+    color: white;
     padding: 10px;
     left: 0;
     right: 0;
     position: absolute;
-    bottom: 0;
 }
 
 img {
@@ -69,10 +68,20 @@ h2, .h2 {
     margin-top: 40px;
 }
 
-#ùùùcontModifica {
+#contModifica {
+    padding:25px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px black;
 }
 
+ a{
+    text-decoration:none;
+    color: brown;
+    font-size:large;
+    font-weight:700;
+}
+
+#butt{
+    margin-top:10px;
 }

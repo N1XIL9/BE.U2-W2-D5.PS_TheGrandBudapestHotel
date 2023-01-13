@@ -8,7 +8,7 @@
 
 <div class="container">
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Crea prenotazione", "Create")
     </p>
     <table class="table">
         <tr>
@@ -81,9 +81,9 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Mdifica", "ModificaPrenotazione", new { id=item.IdPrenotazione }) |
-                    @Html.ActionLink("Dettagli", "DettagliPrenotazione", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Modifica", "ModificaPrenotazione", new { id=item.IdPrenotazione }) |
+                    @Html.ActionLink("Dettagli", "DettagliPrenotazione", new {  id=item.IdPrenotazione}) |
+                    @Html.ActionLink("Elimina", "CancellaPrenotazione", new { id=item.IdPrenotazione })
                 </td>
             </tr>
         }

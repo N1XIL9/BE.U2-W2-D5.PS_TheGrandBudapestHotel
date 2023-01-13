@@ -31,7 +31,9 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CheckOut { set; get; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal Caparra { set; get; }
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         [Display(Name = "Tariffa Soggiorno")]
         public decimal TariffaSoggiorno { set; get; }
         [Display(Name = "Tipo Pensione")]

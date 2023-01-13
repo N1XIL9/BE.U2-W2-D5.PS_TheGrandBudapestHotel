@@ -1,0 +1,122 @@
+﻿@model BE.U2_W2_D5.PS_GrandBudapestHotel.Models.Prenotazioni
+
+@{
+    ViewBag.Title = "CancellaPrenotazione";
+}
+
+<h2>Cancella Prenotazione</h2>
+
+
+
+<div class="container">
+    
+  
+<h3>Sei sicuro di voler eliminare questa prenotazione?</h3>
+    <dl class="dl-horizontal" id="contModifica">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPrenotazione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPrenotazione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cognome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroCamera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroCamera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrenotazione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrenotazione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Checkin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Checkin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caparra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caparra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TariffaSoggiorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TariffaSoggiorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPensione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPensione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCamera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCamera)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" id="butt">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Annulla", "PrenotazioneCLiente")
+        </div>
+    }
+</div>
