@@ -1,30 +1,78 @@
 ﻿body {
+    width: 100%;
+    height: 100%;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('../img/james-gilleard-grand-budapest.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
+    height: 100%;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.navbar {
+    background-color: #EBB3A4;
+    color: black;
+    border:none;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navbar-inverse .navbar-brand {
+    color: black;
 }
 
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+.navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+
+    .navbar-inverse .navbar-nav > li > a :hover {
+        color: black;
+    }
+
+
+footer {
+    text-align: center;
+    background-color: #e9f9ff;
+    color: black;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+img {
+    width: 214px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+
+.table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+h2, .h2 {
+    color: brown;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 15px;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.contflex{
+    margin-top: 40px;
+}
+
+#ùùùcontModifica {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
 }

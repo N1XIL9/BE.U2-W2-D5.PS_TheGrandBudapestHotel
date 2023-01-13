@@ -1,0 +1,92 @@
+﻿@model IEnumerable<BE.U2_W2_D5.PS_GrandBudapestHotel.Models.Prenotazioni>
+
+@{
+    ViewBag.Title = "PrenotazioneCLiente";
+}
+
+<h2>Prenotazioni</h2>
+
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrenotazione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPrenotazione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Checkin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caparra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TariffaSoggiorno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPensione)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPrenotazione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cognome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroCamera)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataPrenotazione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Checkin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Caparra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TariffaSoggiorno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoPensione)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Mdifica", "ModificaPrenotazione", new { id=item.IdPrenotazione }) |
+                    @Html.ActionLink("Dettagli", "DettagliPrenotazione", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
