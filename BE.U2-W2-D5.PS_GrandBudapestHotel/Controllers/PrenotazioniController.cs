@@ -271,6 +271,9 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
         public ActionResult CreaPrenotazione()
         {
             ViewBag.ListaClienti = Clienti.ListaClienti;
+            ViewBag.ListaPensioni = Pensione.ListaPensioni;
+            ViewBag.ListaCamera = Camera.ListaCamera;
+
             return View();
         }
 

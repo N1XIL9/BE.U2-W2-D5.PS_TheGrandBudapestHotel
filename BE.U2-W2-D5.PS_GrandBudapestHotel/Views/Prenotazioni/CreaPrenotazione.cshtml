@@ -29,7 +29,7 @@
             <div class="form-group col-md-6">
                 @Html.LabelFor(model => model.IdCamera, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    @Html.EditorFor(model => model.IdCamera, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.IdCamera, new SelectList(ViewBag.ListaCamera, "Value", "Text"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IdCamera, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="form-group col-md-6">
                 @Html.LabelFor(model => model.TipoPensione, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    @Html.EditorFor(model => model.TipoPensione, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.TipoPensione, new SelectList(ViewBag.ListaPensioni, "Value", "Text"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.TipoPensione, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -86,7 +86,7 @@
 
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+                <div class=" col-md-10">
                     <input type="submit" value="Crea" class="btn btn-default" />
                 </div>
             </div>
