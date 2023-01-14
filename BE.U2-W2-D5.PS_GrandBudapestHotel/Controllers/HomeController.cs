@@ -30,5 +30,12 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
             }
             return View();
         }
+
+        public ActionResult LogOut() 
+        {
+            FormsAuthentication.SignOut(); 
+            return Redirect(FormsAuthentication.DefaultUrl);
+        }
+        
     }
 }

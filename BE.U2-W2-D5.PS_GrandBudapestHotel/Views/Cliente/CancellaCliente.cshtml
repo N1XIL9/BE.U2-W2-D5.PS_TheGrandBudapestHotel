@@ -1,0 +1,107 @@
+﻿@model BE.U2_W2_D5.PS_GrandBudapestHotel.Models.Clienti
+
+@{
+    ViewBag.Title = "CancellaCliente";
+}
+
+<h2>Cancella Cliente</h2>
+
+<div class="container">
+
+    <h3>Sei sicuro di voler eliminare questo cliente?</h3>
+    <div>
+
+        <dl class="dl-horizontal" id="contModifica">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdCliente)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cognome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cognome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Citta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Citta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Provincia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Provincia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cellulare)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cellulare)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IdPrenotazione)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdPrenotazione)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Elimina" class="btn btn-default" /> |
+                @Html.ActionLink("Annulla", "DettagliCliente")
+            </div>
+        }
+    </div>
+    </div>

@@ -78,6 +78,7 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
                 p.TariffaSoggiorno = Convert.ToDecimal(reader["TariffaSoggiorno"]);
                 p.TipoPensione = reader["TipoPensione"].ToString();
 
+                
             }
             sql.Close();
             return View(p);
@@ -194,7 +195,6 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
                     p.IdPrenotazione = Convert.ToInt32(reader["IdPrenotazione"]);
                     p.Cognome = reader["Cognome"].ToString();
                     p.Nome = reader["Nome"].ToString();
-
                     p.NumeroCamera = Convert.ToInt32(reader["NumeroCamera"]);
                     p.DataPrenotazione = Convert.ToDateTime(reader["DataPrenotazione"]);
                     p.Checkin = Convert.ToDateTime(reader["DataArrivo"]);
@@ -221,14 +221,39 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
         {
             SqlConnection sql = Connessioni.GetConnection();
             sql.Open();
-           
 
+            SqlCommand com = Connessioni.GetCommand("DELETE from SERVIZIO where IdPrenotazione= @IdPrenotazione", sql);
+            com.Parameters.AddWithValue("IdPrenotazione", id);
+
+            com.ExecuteNonQuery();
+
+            sql.Close();
+
+
+
+
+            SqlConnection cmd = Connessioni.GetConnection();
+            cmd.Open();
+
+            SqlCommand cmm = Connessioni.GetCommand("UPDATE CLIENTE SET IdPrenotazione=NULL WHERE IdPrenotazione= @IdPrenotazione", cmd);
+            cmm.Parameters.AddWithValue("IdPrenotazione", id);
+
+            cmm.ExecuteNonQuery();
+
+            cmd.Close();
+
+
+
+
+            SqlConnection con = Connessioni.GetConnection();
+            con.Open();
+           
             try
             {
-                SqlCommand com = Connessioni.GetCommand("DELETE * from PRENOTAZIONE  where IdPrenotazione= @IdPrenotazione", sql);
-                com.Parameters.AddWithValue("IdPrenotazione", id);
+                SqlCommand comm = Connessioni.GetCommand("DELETE from PRENOTAZIONE WHERE IdPrenotazione= @IdPrenotazione", con);
+                comm.Parameters.AddWithValue("IdPrenotazione", id);
 
-                SqlDataReader reader = com.ExecuteReader();
+                comm.ExecuteNonQuery();
         
               
             }
@@ -236,7 +261,7 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
             {
                 ViewBag.msgerror = ex.Message;
             }
-            finally { sql.Close(); }
+            finally { con.Close(); }
 
             return RedirectToAction("PrenotazioneCliente");
         }
@@ -245,48 +270,51 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
 
         public ActionResult CreaPrenotazione()
         {
+            ViewBag.ListaClienti = Clienti.ListaClienti;
             return View();
         }
 
 
-        //[HttpPost]
+        [HttpPost]
 
-        //public ActionResult CreaPrenotazione(Prenotazioni p)
-        //{
-        //    SqlConnection sql = Connessioni.GetConnection();
-        //    sql.Open();
+        public ActionResult CreaPrenotazione(Prenotazioni p)
+        {
+            SqlConnection sql = Connessioni.GetConnection();
+            sql.Open();
 
-        //    try
-            //{
+            try
+            {
 
-                //SqlCommand com = Connessioni.GetCommand("INSERT INTO PRENOTAZIONE VALUES (@IdCliente, @IdCamera, @DataPrenotazione, @DataArrivo, @DataPartenza, @Caparra, @TariffaSoggiorno, @IdPensione)", sql);
+                SqlCommand com = Connessioni.GetCommand("INSERT INTO PRENOTAZIONE VALUES (@IdCliente, @IdCamera, @DataPrenotazione, @DataArrivo, @DataPartenza, @Caparra, @TariffaSoggiorno, @IdPensione)", sql);
+            
+                com.Parameters.AddWithValue("IdCliente", p.IdCliente);
+                com.Parameters.AddWithValue("IdCamera", p.IdCamera);
+                com.Parameters.AddWithValue("DataPrenotazione", p.DataPrenotazione);
+                com.Parameters.AddWithValue("DataArrivo", p.Checkin);
+                com.Parameters.AddWithValue("DataPartenza", p.CheckOut);
+                com.Parameters.AddWithValue("Caparra", p.Caparra);
+                com.Parameters.AddWithValue("TariffaSoggiorno", p.TariffaSoggiorno);
+                com.Parameters.AddWithValue("IdPensione", p.TipoPensione);
 
-                //com.Parameters.AddWithValue("IdPrenotazione", Custom.IdPrenotazione);
-                //com.Parameters.AddWithValue("IdCliente", custom.IdCliente);
-                //com.Parameters.AddWithValue("IdCamera", custom.IdCamera);
-                //com.Parameters.AddWithValue("DataPrenotazione", custom.DataPrenotazione);
-                //com.Parameters.AddWithValue("DataArrivo", custom.Checkin);
-                //com.Parameters.AddWithValue("DataPartenza", custom.CheckOut);
-                //com.Parameters.AddWithValue("Caparra", custom.Caparra);
-                //com.Parameters.AddWithValue("TariffaSoggiorno", custom.TariffaSoggiorno);
 
-                //int row = com.ExecuteNonQuery();
 
-        //        if (row > 0)
-        //        {
-        //            ViewBag.confirm = "Scheda cliente modificata con successo";
-        //        }
+                int row = com.ExecuteNonQuery();
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.errore = ex.Message;
-        //    }
-        //    finally { sql.Close(); }
+                if (row > 0)
+                {
+                    ViewBag.confirm = "Scheda cliente modificata con successo";
+                }
 
-        //    return RedirectToAction("PrenotazioneCLiente");
-        //}
+            }
+            catch (Exception ex)
+            {
+                ViewBag.errore = ex.Message;
+            }
+            finally { sql.Close(); }
+
+            return RedirectToAction("PrenotazioneCLiente");
+        }
     }
 
 
-    }
+}

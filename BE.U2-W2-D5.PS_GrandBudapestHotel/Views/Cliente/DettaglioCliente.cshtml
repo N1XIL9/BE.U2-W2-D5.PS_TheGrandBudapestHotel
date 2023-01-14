@@ -1,0 +1,93 @@
+﻿@model BE.U2_W2_D5.PS_GrandBudapestHotel.Models.Clienti
+
+@{
+    ViewBag.Title = "DettaglioCliente";
+}
+
+<h2>Dettaglio Cliente</h2>
+
+<div class="container" id="contModifica">
+    <div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdCliente)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cognome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cognome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Citta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Citta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Provincia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Provincia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cellulare)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cellulare)
+            </dd>
+
+         
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Modifica", "ModificaCliente", new { id = Model.IdCliente }) |
+        @Html.ActionLink("Ritorna a clienti", "DettagliCliente")
+    </p>
+    </div>
