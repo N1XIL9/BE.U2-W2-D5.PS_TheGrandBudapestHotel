@@ -155,7 +155,7 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
 
                 if (reader.HasRows)
                 {
-                    ViewBag.msgError = "Impossibile eliminare questa camera perché ci sono ancora delle prenotazioni collegate. Aggiorna le tue prenotazioni";
+                    ViewBag.msgerror = "Impossibile eliminare questa camera perché ci sono ancora delle prenotazioni collegate. Aggiorna le tue prenotazioni";
                 }
             }
             catch { }
@@ -178,7 +178,7 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.msgError = ex.Message;
+                ViewBag.msgerror = ex.Message;
                 
             }
             finally { sql.Close(); }
