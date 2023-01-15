@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CamereController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrenotazioniController.cs" />
@@ -182,6 +183,9 @@
     <Content Include="Views\Cliente\DettaglioCliente.cshtml" />
     <Content Include="Views\Cliente\CancellaCliente.cshtml" />
     <Content Include="Views\Cliente\CreaCliente.cshtml" />
+    <Content Include="Views\Camere\Camere.cshtml" />
+    <Content Include="Views\Camere\ModificaCamere.cshtml" />
+    <Content Include="Views\Camere\CancellaCamere.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

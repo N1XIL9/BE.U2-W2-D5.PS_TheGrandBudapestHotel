@@ -1,0 +1,67 @@
+﻿@model BE.U2_W2_D5.PS_GrandBudapestHotel.Models.Camera
+
+@{
+    ViewBag.Title = "CancellaCamere";
+}
+
+<h2>Cancella Camere</h2>
+
+
+
+<div class="container">
+
+@if (ViewBag.msgError != null)
+{
+    <div >@ViewBag.msgError</div>
+}
+
+<h3>Sei sicuro di voler eliminare questa camera?</h3>
+
+    <div>
+
+        <dl class="dl-horizontal" id="contModifica">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdCamera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdCamera)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroCamera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumeroCamera)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descrizione)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoCamera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoCamera)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Elimina" class="btn btn-default" /> |
+                @Html.ActionLink("Annulla", "Camere")
+            </div>
+        }
+    </div>
+    </div>

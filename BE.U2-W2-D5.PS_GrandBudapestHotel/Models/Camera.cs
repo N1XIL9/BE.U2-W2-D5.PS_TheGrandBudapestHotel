@@ -18,9 +18,9 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Models
         public string Descrizione { get; set; }
 
         [Display(Name = "Tipologia camera")]
-        public string TipoCamera { get; set;}
+        public string TipoCamera { get; set; }
 
-        // DROPDOWN
+        // DROPDOWN PRENOTAZIONE 
         public static List<SelectListItem> ListaCamera
         {
             get
@@ -34,7 +34,7 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Models
                 {
                     SelectListItem s = new SelectListItem
                     {
-                       
+
                         Text = reader["TipoCamera"].ToString() + " " + reader["Descrizione"],
                         Value = reader["IdCamera"].ToString(),
                     };
@@ -44,6 +44,31 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Models
                 return selectListItems;
             }
 
+        }
+
+
+        public static List<SelectListItem> DropCamera
+        {
+            get
+            {
+                List<SelectListItem> selectListItems = new List<SelectListItem>();
+                SqlConnection sql = Connessioni.GetConnection();
+                sql.Open();
+                SqlCommand com = Connessioni.GetCommand("SELECT * FROM CAMERA", sql);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    SelectListItem s = new SelectListItem
+                    {
+
+                        Text = reader["TipoCamera"].ToString(),
+                        Value = reader["IdCamera"].ToString(),
+                    };
+
+                    selectListItems.Add(s);
+                }
+                return selectListItems;
+            }
         }
     }
 }
