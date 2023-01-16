@@ -153,6 +153,8 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
 
                 SqlDataReader reader = comm.ExecuteReader();
 
+                // NON RIESCO A CAPIRE PERCHé NON FUNZIONA IL ViewBag
+
                 //if (reader.HasRows)
                 //{
                 //    ViewBag.msgerror = "La camera non verrà eliminata se ci sono delle prenotazioni collegate ad essa. Controlla prima le prenotazioni.";
