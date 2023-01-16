@@ -10,10 +10,16 @@
 
 <div class="container">
 
-@if (ViewBag.msgerror != null)
+@*@if (ViewBag.msgerror != null)
 {
     <div class="alert-danger">@ViewBag.msgerror</div>
-}
+}*@
+
+    <div class="alert-danger">
+        <p class="msn-error">
+            La camera non verrà eliminata se ci sono delle prenotazioni collegate ad essa. Controlla prima le prenotazioni.
+        </p>
+    </div>
 
 <h3>Sei sicuro di voler eliminare questa camera?</h3>
 

@@ -148,17 +148,18 @@ namespace BE.U2_W2_D5.PS_GrandBudapestHotel.Controllers
 
             try
             {
-                SqlCommand comm = Connessioni.GetCommand("SELECT * FROM PRENOTAZIONE where NumeroCamera=@NrCamera", sqlc);
-                comm.Parameters.AddWithValue("NrCamera", id);
+                SqlCommand comm = Connessioni.GetCommand("SELECT * FROM PRENOTAZIONE INNER JOIN CAMERA ON PRENOTAZIONE.IdCamera = CAMERA.IdCamera where NumeroCamera=@NumeroCamera", sqlc);
+                comm.Parameters.AddWithValue("NumeroCamera", id);
 
                 SqlDataReader reader = comm.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    ViewBag.msgerror = "Impossibile eliminare questa camera perché ci sono ancora delle prenotazioni collegate. Aggiorna le tue prenotazioni";
-                }
+                //if (reader.HasRows)
+                //{
+                //    ViewBag.msgerror = "La camera non verrà eliminata se ci sono delle prenotazioni collegate ad essa. Controlla prima le prenotazioni.";
+                //}
             }
-            catch { }
+            catch {  }
+            
             finally { sqlc.Close(); }
 
 
